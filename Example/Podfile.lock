@@ -1,0 +1,34 @@
+PODS:
+  - MockHttpUITests (0.1.0):
+    - OHHTTPStubs
+    - OHHTTPStubs/Swift
+  - OHHTTPStubs (5.2.3):
+    - OHHTTPStubs/Default (= 5.2.3)
+  - OHHTTPStubs/Core (5.2.3)
+  - OHHTTPStubs/Default (5.2.3):
+    - OHHTTPStubs/Core
+    - OHHTTPStubs/JSON
+    - OHHTTPStubs/NSURLSession
+    - OHHTTPStubs/OHPathHelpers
+  - OHHTTPStubs/JSON (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/NSURLSession (5.2.3):
+    - OHHTTPStubs/Core
+  - OHHTTPStubs/OHPathHelpers (5.2.3)
+  - OHHTTPStubs/Swift (5.2.3):
+    - OHHTTPStubs/Core
+
+DEPENDENCIES:
+  - MockHttpUITests (from `../`)
+
+EXTERNAL SOURCES:
+  MockHttpUITests:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MockHttpUITests: c30c56ac631a61dd81ba21d5106021b8e9760ecd
+  OHHTTPStubs: e238cd5b66d8efa51c861db45895de8fe079f4a7
+
+PODFILE CHECKSUM: 39591c8e7112c2d61fb173acf668af45ac48ce9f
+
+COCOAPODS: 1.2.0

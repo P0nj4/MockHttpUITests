@@ -36,16 +36,16 @@ public class MockRequestItem: NSObject {
             let responseHTTPCode = dict["responseHTTPCode"] as? Int32 else {
                 return nil
         }
+        print("NEW REQUEST MOCKED UP: \(jsonString)")
         self.init(requestPath: requestPath, responseFileName: responseFileName, responseHTTPCode: responseHTTPCode, removeAfterCalled: removeAfterCalled)
     }
 
     public static func convertToDictionary(text: String) -> [String: Any]? {
-        print(text)
         if let data = text.data(using: .utf8) {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             } catch {
-                print(error.localizedDescription)
+                //print(error.localizedDescription)
             }
         }
         return nil

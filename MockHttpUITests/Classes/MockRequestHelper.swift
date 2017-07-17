@@ -28,8 +28,9 @@ public class MockRequestHelper {
                 })
             }
             if !responseFile.characters.isEmpty {
-                let stubPath = OHPathForFile("\(responseFile).json", self)
-                return OHHTTPStubsResponse(fileAtPath: stubPath!, statusCode: statusCode, headers: ["Content-Type": "application/json; charset=utf-8"])
+                let url = Bundle.main.url(forResource: responseFile, withExtension: "json")
+                let data = try! Data(contentsOf: url!)
+                return OHHTTPStubsResponse(data: data, statusCode: statusCode, headers: ["Content-Type": "application/json; charset=utf-8"])
             }
             return OHHTTPStubsResponse(jsonObject: [], statusCode: statusCode, headers: ["Content-Type": "application/json; charset=utf-8"])
         }

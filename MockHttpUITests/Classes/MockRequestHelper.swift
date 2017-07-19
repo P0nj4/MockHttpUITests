@@ -23,9 +23,9 @@ public class MockRequestHelper {
 
         let stubDescriptor = stub(condition: isPath(path)) { _ in
             if mockRequestItem.removeAfterCalled {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
+                //DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
                     OHHTTPStubs.removeStub(mockRequestItems[mockRequestItem]!)
-                })
+                //})
             }
             if !responseFile.characters.isEmpty {
                 let url = Bundle.main.url(forResource: responseFile, withExtension: "json")

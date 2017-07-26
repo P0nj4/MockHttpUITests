@@ -15,17 +15,22 @@ public class MockRequestHelper {
 
     public class func mockRequest(mockRequestItem: MockRequestItem) {
 
+        func isMethod(_ method: String) -> OHHTTPStubsTestBlock {
+            return {
+                $0.httpMethod == method
+            }
+        }
+
+
         guard let path: String = mockRequestItem.requestPath,
             let responseFile: String = mockRequestItem.responseFileName,
             let statusCode: Int32 = mockRequestItem.responseHTTPCode else {
                 return
         }
 
-        let stubDescriptor = stub(condition: isPath(path)) { _ in
+        let stubDescriptor = stub(condition: isPath(path) && isMethod(mockRequestItem.requestMethod)) { _ in
             if mockRequestItem.removeAfterCalled {
-                //DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {
-                    OHHTTPStubs.removeStub(mockRequestItems[mockRequestItem]!)
-                //})
+                OHHTTPStubs.removeStub(mockRequestItems[mockRequestItem]!)
             }
             if !responseFile.characters.isEmpty {
                 let url = Bundle.main.url(forResource: responseFile, withExtension: "json")
@@ -44,5 +49,5 @@ public class MockRequestHelper {
             }
         }
     }
-
+    
 }

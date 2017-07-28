@@ -13,6 +13,11 @@ public class MockRequestHelper {
 
     private static var mockRequestItems = [MockRequestItem: OHHTTPStubsDescriptor]()
 
+    public class func cleanMocks() {
+        OHHTTPStubs.removeAllStubs()
+        mockRequestItems.removeAll()
+    }
+
     public class func mockRequest(mockRequestItem: MockRequestItem) {
 
         func isMethod(_ method: String) -> OHHTTPStubsTestBlock {
@@ -20,7 +25,6 @@ public class MockRequestHelper {
                 $0.httpMethod == method
             }
         }
-
 
         guard let path: String = mockRequestItem.requestPath,
             let responseFile: String = mockRequestItem.responseFileName,

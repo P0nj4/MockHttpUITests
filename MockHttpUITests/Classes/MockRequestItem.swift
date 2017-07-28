@@ -26,7 +26,7 @@ public class MockRequestItem: NSObject {
 
     public func toJsonString() -> String {
         // swiftlint:disable line_length
-        return "{\"requestPath\": \"\(requestPath!)\", \"responseFileName\": \"\(responseFileName!)\", \"removeAfterCalled\": \(removeAfterCalled), \"responseHTTPCode\": \(responseHTTPCode!), \"requestMethod\": \(requestMethod)}"
+        return "{\"requestPath\": \"\(requestPath!)\", \"responseFileName\": \"\(responseFileName!)\", \"removeAfterCalled\": \(removeAfterCalled), \"responseHTTPCode\": \(responseHTTPCode!), \"requestMethod\": \"\(requestMethod!)\"}"
         // swiftlint:enable line_length
     }
 
